@@ -1,10 +1,25 @@
-# Web 3 Starter kit
+# Ethereum DApp with Solidity and Next.js
 
-This project is a starter kit for simple web3 projects. I contains a custom deploy script that write the address and abi to `/frontend/src/components/interface.json`. It also contains a simple storage smart contract
+This repository contains a decentralized application (DApp) built using Solidity for the smart contract and Next.js for the frontend. The DApp demonstrates a simple storage system where users can set, get, produce, and consume an amount stored on the Ethereum blockchain.
 
-This is done as a part of **intermediate EVM course** in metacrafters
+## Smart Contract
 
-It also contains a frontend folder made with next js and it uses web3modal, wagmi and viem to communicate with the blockchain
+The smart contract (`Storage.sol`) is written in Solidity, a programming language specifically designed for creating smart contracts on the Ethereum blockchain. It includes the following functions:
+
+- `set(uint _num)`: Sets the storage amount to the provided value and logs the received value.
+- `get()`: Retrieves the current storage amount.
+- `produce()`: Increments the storage amount by one.
+- `consume()`: Decrements the storage amount by one.
+
+## Frontend
+
+The frontend of the DApp is built using Next.js, a React framework for building web applications. It communicates with the Ethereum blockchain using the `ethers.js` library to interact with the deployed smart contract. Users can input values, retrieve the current amount, and trigger the "produce" and "consume" actions from the user interface.
+
+## Getting Started
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/ethereum-dapp.git
 
 ## hardhat configuration
 
@@ -32,8 +47,12 @@ npx hardhat run scripts/deploy.ts --network localhost
 
 make sure to install the packages with `npm i` before running the frontend
 
-rename the `.env.example` to `.env` and update the variables value.
-
-> get your project id from https://cloud.walletconnect.com/
+> Edit the project id in page.tsx file you can get your project id from https://cloud.walletconnect.com/
 
 To update the networks, go to `/frontend/src/app/page.tsx` and update the `chains` array
+
+```shell
+npm run dev
+```
+
+Open your browser and navigate to http://localhost:3000 to interact with the DApp.
